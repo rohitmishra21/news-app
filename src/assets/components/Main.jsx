@@ -7,10 +7,10 @@ const Main = () => {
   const API_KEY = "d2258cba1769419981216d96e4a9273a";
 
   useEffect(() => {
-    fechData();
+    fetchData();
   }, [search]);
 
-  const fechData = async () => {
+  const fetchData = async () => {
     const responce = await fetch(
       `https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`
     );
@@ -53,9 +53,9 @@ const Main = () => {
           />
           <button
             className="xl:px-4 xl:py-2 bg-blue-950 text-white uppercase cursor-pointer tracking-wider font-semibold"
-            onClick={fechData}
+            onClick={fetchData}
           >
-            search 
+            search
           </button>
         </div>
       </nav>
@@ -100,7 +100,11 @@ const Main = () => {
             Health
           </button>
         </div>
-        <div>{newsData === null ? null : <Card data={newsData} />}</div>
+        <div>
+          {newsData && Array.isArray(newsData) ? (
+            <Card data={newsData} />
+          ) : null}
+        </div>
       </div>
     </div>
   );
