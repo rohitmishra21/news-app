@@ -1,14 +1,18 @@
 
 import './App.css'
-import Main from './assets/components/Main'
+import Card from './components/Card'
+import Main from './components/Main'
+import Nav from './components/Nav'
 
 function App() {
 
 
   return (
- <>
-   <Main/>
- </>
+    <div className='md:px-10'>
+      <Main />
+      <Nav />
+      <Card />
+    </div>
   )
 }
 
